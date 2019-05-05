@@ -20,13 +20,15 @@ to disambiguate between "cancel item" and "cancel order".
     
 -----------------------------------------------------------------------------*/
 
-var builder = require('botbuilder');
+const builder = require('botbuilder');
+import { BotPGStorage } from './BotPGStorage';
 
 // Bot Storage: Here we register the state storage for your bot. 
 // Default store: volatile in-memory store - Only for prototyping!
 // We provide adapters for Azure Table, CosmosDb, SQL Azure, or you can implement your own!
 // For samples and documentation, see: https://github.com/Microsoft/BotBuilder-Azure
-var pgBotStorage = new builder.MemoryBotStorage();
+// var pgBotStorage = new builder.MemoryBotStorage();
+const pgBotStorage = new BotPGStorage();
 
 // Setup bot and default message handler
 var connector = new builder.ConsoleConnector().listen();
